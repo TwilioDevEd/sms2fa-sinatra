@@ -6,6 +6,12 @@ rvm:
 install:
   - bundle install
 
+before_install:
+  - sudo apt-get install postgresql-server-dev-9.5 libpq-dev
+
+before_script:
+  - psql -c 'create database warm_transfer_sinatra_test;' -U postgres
+
 env:
   global:
     - TWILIO_ACCOUNT_SID=TWILIO-ACCOUNT-SID
