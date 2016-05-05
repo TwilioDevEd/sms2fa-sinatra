@@ -1,0 +1,29 @@
+%h1 We're going to be best friends
+
+%p Thanks for your interest in signing up! Can you tell us a bit about yourself?
+
+%form.form-horizontal{ action: '/users', method: 'POST' }
+  .form-group
+    %label.col-md-2.control-label{ for: :first_name } First name
+    .col-md-10
+      %input.form-control{ name: :first_name }
+  .form-group
+    %label.col-md-2.control-label{ for: :last_name } Last name
+    .col-md-10
+      %input.form-control{ name: :last_name }
+  .form-group
+    %label.col-md-2.control-label{ for: :email } Email
+    .col-md-10
+      %input.form-control{ name: :email }
+  .form-group
+    %label.col-md-2.control-label{ for: :phone_number } Phone number
+    .col-md-10
+      %input.form-control{ name: :phone_number }
+  .form-group
+    %label.col-md-2.control-label{ for: :password } Password
+    .col-md-10
+      %input.form-control{ type: 'password', name: :password }
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-success Sign Up

@@ -1,0 +1,5 @@
+development:
+  database_url: postgres:///sms_two_fa_sinatra
+
+test:
+  database_url: postgres:///sms_two_fa_sinatra_test
