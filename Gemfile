@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'haml'
 gem 'twilio-ruby'
+gem 'pg'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-transactions'
 
 group :test, :development do
   gem 'rspec'
