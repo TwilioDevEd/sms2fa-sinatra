@@ -5,3 +5,9 @@ rvm:
 
 install:
   - bundle install
+
+env:
+  global:
+    - TWILIO_ACCOUNT_SID=TWILIO-ACCOUNT-SID
+    - TWILIO_AUTH_TOKEN=TWILIO-AUTH-TOKEN
+    - TWILIO_PHONE_NUMBER=TWILIO-PHONE-NUMBER
