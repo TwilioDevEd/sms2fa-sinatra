@@ -10,7 +10,7 @@ before_install:
   - sudo apt-get install postgresql-server-dev-9.5 libpq-dev
 
 before_script:
-  - psql -c 'create database warm_transfer_sinatra_test;' -U postgres
+  - psql -c 'create database sms_two_fa_sinatra_test;' -U postgres
 
 env:
   global:
