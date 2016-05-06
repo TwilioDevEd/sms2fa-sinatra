@@ -1,9 +1,5 @@
 require_relative '../spec_helper'
 
-require_relative '../../lib/confirmation_sender'
-require_relative '../../lib/code_generator'
-require_relative '../../lib/message_sender'
-
 describe ConfirmationSender do
   describe '.send_confirmation_to' do
     let(:user) do

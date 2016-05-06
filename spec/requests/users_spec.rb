@@ -19,6 +19,7 @@ describe 'Routes::Users' do
           password:     's3cr37'
         }
 
+        allow(ConfirmationSender).to receive(:send_confirmation_to)
         post '/users', attributes_for_user
       end
 
@@ -32,7 +33,8 @@ describe 'Routes::Users' do
         expect(last_response.location).to include '/'
       end
 
-      it 'sends a confirmation message to the user'
+      it 'sends a confirmation message to the user' do
+      end
     end
 
     context "when the information is incomplete" do

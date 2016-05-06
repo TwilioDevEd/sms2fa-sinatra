@@ -4,6 +4,9 @@ require 'tilt/haml'
 
 require_relative 'helpers/datamapper_helper'
 require_relative 'routes/users'
+require_relative 'lib/code_generator'
+require_relative 'lib/confirmation_sender'
+require_relative 'lib/message_sender'
 
 ENV['RACK_ENV'] ||= 'development'
 
@@ -15,6 +18,8 @@ module TwoFactorAuth
     register Sinatra::ConfigFile
     config_file 'config/app.yml'
     DataMapperHelper.setup(settings.database_url)
+
+    enable :sessions
     set :root, File.dirname(__FILE__)
 
     register Routes::Users
