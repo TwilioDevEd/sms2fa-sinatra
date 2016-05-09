@@ -4,6 +4,7 @@ require 'tilt/haml'
 
 require_relative 'helpers/datamapper_helper'
 require_relative 'routes/users'
+require_relative 'routes/confirmations'
 require_relative 'lib/code_generator'
 require_relative 'lib/confirmation_sender'
 require_relative 'lib/message_sender'
@@ -23,6 +24,7 @@ module TwoFactorAuth
     set :root, File.dirname(__FILE__)
 
     register Routes::Users
+    register Routes::Confirmations
 
     get '/' do
       ''

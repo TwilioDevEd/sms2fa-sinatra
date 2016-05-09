@@ -1,0 +1,15 @@
+%h1= @user.phone_number
+
+%p We have sent you a SMS with a code to the number above.
+
+%p To complete your phone number verification, please enter the 6-digits activation code.
+
+%form.form-horizontal{ action: '/confirmations', method: 'POST' }
+  .form-group
+    %label.col-md-2.control-label{ for: :verification_code } Verification code
+    .col-md-10
+      %input.form-control{ name: :verification_code }
+      %input{ type: 'hidden', value: @user.id }
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-success Confirm
