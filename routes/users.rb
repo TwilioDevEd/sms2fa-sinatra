@@ -1,5 +1,3 @@
-require_relative '../lib/code_generator'
-
 module Routes
   module Users
     def self.registered(app)
