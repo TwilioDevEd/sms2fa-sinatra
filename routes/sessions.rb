@@ -11,7 +11,7 @@ module Routes
           session[:user_id] = @user.id
           session[:authenticated] = false
 
-          ConfirmationSender.send_confirmation_to @user
+          VerificationSender.send_confirmation_to @user
 
           redirect '/confirmations/new'
         else

@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 
-describe ConfirmationSender do
+describe VerificationSender do
   describe '.send_confirmation_to' do
     let(:user) do
       User.create(first_name:   'Alice',

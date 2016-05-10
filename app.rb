@@ -10,8 +10,8 @@ require_relative 'routes/sessions'
 require_relative 'routes/confirmations'
 require_relative 'routes/protected'
 require_relative 'lib/code_generator'
-require_relative 'lib/confirmation_sender'
 require_relative 'lib/message_sender'
+require_relative 'lib/verification_sender'
 
 ENV['RACK_ENV'] ||= 'development'
 
