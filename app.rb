@@ -34,7 +34,7 @@ module TwoFactorAuth
     register Routes::Protected
 
     get '/' do
-      ''
+      haml :'home/index'
     end
   end
 end
