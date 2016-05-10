@@ -3,8 +3,10 @@ require 'sinatra/config_file'
 require 'tilt/haml'
 
 require_relative 'helpers/datamapper_helper'
+require_relative 'helpers/authentication'
 require_relative 'routes/users'
 require_relative 'routes/confirmations'
+require_relative 'routes/protected'
 require_relative 'lib/code_generator'
 require_relative 'lib/confirmation_sender'
 require_relative 'lib/message_sender'
@@ -23,8 +25,11 @@ module TwoFactorAuth
     enable :sessions
     set :root, File.dirname(__FILE__)
 
+    helpers Helpers::Authentication
+
     register Routes::Users
     register Routes::Confirmations
+    register Routes::Protected
 
     get '/' do
       ''
