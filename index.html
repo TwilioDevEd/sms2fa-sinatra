@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><title>SMS Two-Factor Authentication with Sinatra and Twilio</title><style>body, html {
+  height:100%;
+  width:100%;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  background-color:#ddd;
+}
+.wrapper {
+  height:100%;
+  width:100%;
+}</style><link rel="shortcut icon" href="//twilio.com/bundles/marketing/img/favicons/favicon.ico"><link rel="apple-touch-icon" href="//twilio.com/bundles/marketing/img/favicons/favicon_57.png"><link rel="apple-touch-icon" sizes="72x72" href="//twilio.com/bundles/marketing/img/favicons/favicon_72.png"><link rel="apple-touch-icon" sizes="114x114" href="//twilio.com/bundles/marketing/img/favicons/favicon_114.png"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"><link rel="stylesheet" href="viewsaurus.css"></head><body><div class="wrapper"><div id="viewsaurus" data-title="SMS Two-Factor Authentication with Sinatra and Twilio"><div class="saurus-panes"><div class="saurus-prose"><div class="saurus-prose-header"><div class="title-outer"><span class="step-title">SMS Two-Factor Authentication with Sinatra and Twilio</span></div></div><div class="saurus-nav-buttons"><div class="saurus-nav-button nav-overview"><div class="saurus-nav-button-inner"><i class="fa fa-fw fa-list"></i></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-previous"><div class="saurus-nav-button-inner"><a href=""> <i class="fa fa-fw fa-play fa-rotate-180"></i></a></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-next clickable"><div class="saurus-nav-button-inner"><a href="#1"> <i class="fa fa-fw fa-play"></i></a></div></div><div class="saurus-next-title"><span class="next-title-inner"></span></div></div><div class="saurus-progress-bar"></div><div class="saurus-start"><p>Learn to implement SMS two-factor authentication in your web app with Twilio. 2FA helps further secure your users' data by validating more than just a password. This tutorial will show you the code to make it happen.</p><a href="#0">Start Tutorial</a></div><div class="saurus-content"><div data-title="How it Works" data-file="lib/verification_sender.rb" class="step"><h2 id="about-this-application">About this Application</h2>
+<p>This <a href="//www.sinatrarb.com">Sinatra</a> application example demonstrates how to
+implement an SMS two-factor authentication using Twilio.</p>
+<p>Adding two-factor authentication (2FA) to your web application increases the
+security of your user&#39;s data. <a href="//en.wikipedia.org/wiki/Multi-factor_authentication">Multi-factor
+authentication</a>
+determines the identity of a user in two steps:</p>
+<ol>
+<li>First we validate the user with an email and password.</li>
+<li>Second, we validate using a mobile device, by sending them a one-time <strong>verification code</strong>.</li>
+</ol>
+<p>Once our user enters the verification code, we know they have received the SMS, and indeed are who they say they are. This is a standard SMS implementation.</p>
+<p>For a slightly more advanced implementation using
+<a href="//www.twilio.com/authy">Authy</a> One-Touch checkout this
+<a href="/docs/tutorials/walkthrough/two-factor-authentication/ruby/sinatra">tutorial</a>.</p>
+<p>Let&#39;s get started!</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//www.twilio.com/docs/api/rest/sending-messages">REST API: Sending SMS or MMS</a></li>
+</ul>
+</div>
+<div class="saurus-files" style="display:none;"><textarea class="saurus-file" data-file="lib/verification_sender.rb" data-mode="ruby">bW9kdWxlIFZlcmlmaWNhdGlvblNlbmRlcgogIGRlZiBzZWxmLnNlbmRfY29uZmlybWF0aW9uX3RvKHVzZXIpCiAgICB2ZXJpZmljYXRpb25fY29kZSA9IENvZGVHZW5lcmF0b3IuZ2VuZXJhdGUKICAgIHVzZXIudXBkYXRlKHZlcmlmaWNhdGlvbl9jb2RlOiB2ZXJpZmljYXRpb25fY29kZSkKICAgIE1lc3NhZ2VTZW5kZXIuc2VuZF9jb2RlKHVzZXIucGhvbmVfbnVtYmVyLCB2ZXJpZmljYXRpb25fY29kZSkKICBlbmQKZW5kCg==</textarea>
+</div>
+</div><div class="saurus-overview"><ul></ul></div></div><div class="saurus-code"><div class="file-path"><span class="crumb-container"></span><i class="fa fa-fw fa-folder"></i></div><div class="saurus-editor"></div></div><div class="saurus-explorer"><div class="saurus-file-list"></div><a href="https://github.com/TwilioDevEd/sms2fa-sinatra" target="_blank" class="explorer-get-code"> <i class="fa fa-lg fa-github-square"> </i>View Code on GitHub</a></div></div></div></div><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script><script src="ace/ace.js"></script><script src="ace/theme-monokai.js"></script><script src="viewsaurus.js"></script></body></html>

@@ -1,0 +1,30 @@
+.step(
+  data-title='How it Works',
+  data-file='lib/verification_sender.rb')
+  :markdown
+    ## About this Application
+
+    This [Sinatra](//www.sinatrarb.com) application example demonstrates how to
+    implement an SMS two-factor authentication using Twilio.
+
+    Adding two-factor authentication (2FA) to your web application increases the
+    security of your user's data. [Multi-factor
+    authentication](//en.wikipedia.org/wiki/Multi-factor_authentication)
+    determines the identity of a user in two steps:
+
+    1. First we validate the user with an email and password.
+    1. Second, we validate using a mobile device, by sending them a one-time **verification code**.
+
+    Once our user enters the verification code, we know they have received the SMS, and indeed are who they say they are. This is a standard SMS implementation.
+
+    For a slightly more advanced implementation using
+    [Authy](//www.twilio.com/authy) One-Touch checkout this
+    [tutorial](/docs/tutorials/walkthrough/two-factor-authentication/ruby/sinatra).
+
+    Let's get started!
+
+    ---
+
+    **See Also:**
+
+    * [REST API: Sending SMS or MMS](//www.twilio.com/docs/api/rest/sending-messages)
