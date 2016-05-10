@@ -11,4 +11,8 @@ class User
   property :password,          BCryptHash, required: true
   property :verification_code, String,                     default:  ''
   property :confirmed,         Boolean,                    default:  false
+
+  def pretty_phone_number
+    Phony.format(phone_number.gsub(/[\+\-\s]/, ''))
+  end
 end
