@@ -34,6 +34,11 @@ describe 'Routes::Users' do
       end
 
       it 'sends a confirmation message to the user' do
+        bob = User.last
+        expect(ConfirmationSender)
+          .to have_received(:send_confirmation_to)
+          .with(bob)
+          .once
       end
     end
 
