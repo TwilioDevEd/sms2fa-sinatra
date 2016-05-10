@@ -30,7 +30,75 @@ determines the identity of a user in two steps:</p>
 <ul>
 <li><a href="//www.twilio.com/docs/api/rest/sending-messages">REST API: Sending SMS or MMS</a></li>
 </ul>
+</div><div data-title="Generating a Verification Code" data-file="lib/code_generator.rb" class="step"><h2 id="generating-a-verification-code">Generating a Verification Code</h2>
+<p>Once our user logs in we need to send them a <em>verification code</em>.</p>
+<p>To generate our <em>verification code</em> we use <code>Random#rand</code> which can take a
+<em>range</em> as an argument. Considering the current implementation our <em>6-digit
+verification code</em> could be any number between <strong>100000</strong> and <strong>999999</strong>.</p>
+<p>Next let&#39;s look at how we would send this in an SMS with Twilio.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//ruby-doc.org/core-2.2.0/Random.html">Ruby Docs: Random</a></li>
+<li><a href="//ruby-doc.org/core-2.2.0/Range.html">Ruby Docs: Range</a></li>
+</ul>
+</div><div data-title="Sending a Verification Code" data-file="lib/message_sender.rb" class="step"><h2 id="sending-a-verification-code">Sending a Verification Code</h2>
+<p>The Twilio helper library allows us to easily send an SMS.</p>
+<p>First we have to create an instance of a <strong>Twilio Client</strong> with our
+credentials. Now all we have to do to send an SMS using the REST API is to call <code>client.messages.create()</code> with the necessary parameters.</p>
+<p>You can find your credentials at your <a href="//www.twilio.com/user/account/phone-numbers/incoming">Twilio Account</a>.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//twilio-ruby.readthedocs.org/en/latest/">Twilio Ruby Helper Library</a></li>
+<li><a href="//twilio-ruby.readthedocs.org/en/latest/usage/messages.html#sending-a-text-message">Twilio: Sending a Text Message</a></li>
+</ul>
+</div><div data-title="Registering a User" data-file="routes/users.rb" data-highlight="15,18-26" class="step"><h2 id="registering-a-user">Registering a User</h2>
+<p>When a <strong>user</strong> signs up for our website, this controller creates the <strong>user</strong> and sends them a <em>verification code</em>.</p>
+<p>In order to do two-factor authentication we need to make sure we ask for the
+user&#39;s <strong>phone number</strong>.</p>
+<p>Let&#39;s see how we implemented the <code>send_verification_to</code> method.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//www.sinatrarb.com/intro.html#Routes">Sinatra Routes</a></li>
+</ul>
+</div><div data-title="Putting It All Together" data-file="lib/verification_sender.rb" class="step"><h2 id="putting-it-all-together">Putting It All Together</h2>
+<p>Using the building blocks we&#39;ve created in the previous steps we can now pull it all together.</p>
+<p>Notice we update the user with the <em>verification code</em> since we&#39;ll need to look it up to verify the user.</p>
+<p>Let&#39;s take a look on how to implement the actual 2-Step verification.</p>
+</div><div data-title="Implementing the 2-Step Verification" data-file="routes/confirmations.rb" data-highlight="9-22" class="step"><h2 id="implementing-the-2-step-verification">Implementing the 2-Step Verification</h2>
+<p>When the <strong>user</strong> receives an SMS with the <em>verification code</em> we need to
+ensure the given code is valid.</p>
+<p>This validation is achieved by comparing the user&#39;s <strong>verification code</strong>
+with the <em>verification code</em> the user inputs on the form.</p>
+<p><img src="http://howtodocs.s3.amazonaws.com/sms-2fa-authentication.png" alt="Confirm Verification Code"></p>
+<p>If the validation was successful the application allows the user to have
+access to the protected content. Otherwise the application will prompt for
+the <em>verification code</em> once again.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//datamapper.org/docs/find.html">DataMapper: Finding Records</a></li>
+</ul>
+</div><div class="step"><h2 id="where-to-next-">Where to next?</h2>
+<p>That&#39;s it! We&#39;ve just implemented an SMS Two-Factor Authenticated
+application. If you&#39;re a Ruby developer working with Twilio, you might want
+to check out these other tutorials.</p>
+<p><a href="//www.twilio.com/docs/tutorials/walkthrough/server-notifications/ruby/sinatra"><strong>SMS and MMS Notifications</strong></a></p>
+<p>Faster than e-mail and less likely to get blocked, text messages are great
+for timely alerts and notifications</p>
+<p><a href="//www.twilio.com/docs/tutorials/walkthrough/automated-survey/ruby/sinatra"><strong>Automated Survey</strong></a></p>
+<p>Instantly collect structured data from your users with a survey conducted
+over a voice call or SMS text messages.</p>
+<h3 id="did-this-help-">Did this help?</h3>
+<p>Thanks for checking out this tutorial! If you have any feedback
+to share with us, we&#39;d love to hear it. <a href="mailto:deved-oss@twilio.com">Contact the Twilio Developer Education Team</a> to let us know what you think.</p>
 </div>
-<div class="saurus-files" style="display:none;"><textarea class="saurus-file" data-file="lib/verification_sender.rb" data-mode="ruby">bW9kdWxlIFZlcmlmaWNhdGlvblNlbmRlcgogIGRlZiBzZWxmLnNlbmRfY29uZmlybWF0aW9uX3RvKHVzZXIpCiAgICB2ZXJpZmljYXRpb25fY29kZSA9IENvZGVHZW5lcmF0b3IuZ2VuZXJhdGUKICAgIHVzZXIudXBkYXRlKHZlcmlmaWNhdGlvbl9jb2RlOiB2ZXJpZmljYXRpb25fY29kZSkKICAgIE1lc3NhZ2VTZW5kZXIuc2VuZF9jb2RlKHVzZXIucGhvbmVfbnVtYmVyLCB2ZXJpZmljYXRpb25fY29kZSkKICBlbmQKZW5kCg==</textarea>
+<div class="saurus-files" style="display:none;"><textarea class="saurus-file" data-file="lib/verification_sender.rb" data-mode="ruby">bW9kdWxlIFZlcmlmaWNhdGlvblNlbmRlcgogIGRlZiBzZWxmLnNlbmRfdmVyaWZpY2F0aW9uX3RvKHVzZXIpCiAgICB2ZXJpZmljYXRpb25fY29kZSA9IENvZGVHZW5lcmF0b3IuZ2VuZXJhdGUKICAgIHVzZXIudXBkYXRlKHZlcmlmaWNhdGlvbl9jb2RlOiB2ZXJpZmljYXRpb25fY29kZSkKICAgIE1lc3NhZ2VTZW5kZXIuc2VuZF9jb2RlKHVzZXIucGhvbmVfbnVtYmVyLCB2ZXJpZmljYXRpb25fY29kZSkKICBlbmQKZW5kCg==</textarea>
+<textarea class="saurus-file" data-file="lib/code_generator.rb" data-mode="ruby">bW9kdWxlIENvZGVHZW5lcmF0b3IKICBkZWYgc2VsZi5nZW5lcmF0ZQogICAgcmFuZCgxMDAwMDAuLi45OTk5OTkpLnRvX3MKICBlbmQKZW5kCg==</textarea>
+<textarea class="saurus-file" data-file="lib/message_sender.rb" data-mode="ruby">bW9kdWxlIE1lc3NhZ2VTZW5kZXIKICBkZWYgc2VsZi5zZW5kX2NvZGUocGhvbmVfbnVtYmVyLCBjb2RlKQogICAgYWNjb3VudF9zaWQgPSBFTlZbJ1RXSUxJT19BQ0NPVU5UX1NJRCddCiAgICBhdXRoX3Rva2VuICA9IEVOVlsnVFdJTElPX0FVVEhfVE9LRU4nXQogICAgY2xpZW50ID0gVHdpbGlvOjpSRVNUOjpDbGllbnQubmV3KGFjY291bnRfc2lkLCBhdXRoX3Rva2VuKQoKICAgIG1lc3NhZ2UgPSBjbGllbnQubWVzc2FnZXMuY3JlYXRlKAogICAgICBmcm9tOiAgRU5WWydUV0lMSU9fUEhPTkVfTlVNQkVSJ10sCiAgICAgIHRvOiAgICBwaG9uZV9udW1iZXIsCiAgICAgIGJvZHk6ICBjb2RlCiAgICApCgogICAgbWVzc2FnZS5zdGF0dXMgPT0gJ3F1ZXVlZCcKICBlbmQKZW5kCg==</textarea>
+<textarea class="saurus-file" data-file="routes/users.rb" data-mode="ruby">bW9kdWxlIFJvdXRlcwogIG1vZHVsZSBVc2VycwogICAgZGVmIHNlbGYucmVnaXN0ZXJlZChhcHApCiAgICAgIGFwcC5nZXQgJy91c2Vycy9uZXcnIGRvCiAgICAgICAgQHVzZXIgPSBVc2VyLm5ldwogICAgICAgIGhhbWwgOid1c2Vycy9uZXcnCiAgICAgIGVuZAoKICAgICAgYXBwLnBvc3QgJy91c2VycycgZG8KICAgICAgICB1c2VyX3BhcmFtcyA9IHsKICAgICAgICAgIGZpcnN0X25hbWU6ICAgcGFyYW1zWzpmaXJzdF9uYW1lXSwKICAgICAgICAgIGxhc3RfbmFtZTogICAgcGFyYW1zWzpsYXN0X25hbWVdLAogICAgICAgICAgZW1haWw6ICAgICAgICBwYXJhbXNbOmVtYWlsXSwKICAgICAgICAgIHBob25lX251bWJlcjogcGFyYW1zWzpwaG9uZV9udW1iZXJdLAogICAgICAgICAgcGFzc3dvcmQ6ICAgICBwYXJhbXNbOnBhc3N3b3JkXQogICAgICAgIH0KCiAgICAgICAgQHVzZXIgPSBVc2VyLm5ldyh1c2VyX3BhcmFtcykKICAgICAgICBpZiBAdXNlci5zYXZlCiAgICAgICAgICBzZXNzaW9uWzp1c2VyX2lkXSA9IEB1c2VyLmlkCiAgICAgICAgICBWZXJpZmljYXRpb25TZW5kZXIuc2VuZF92ZXJpZmljYXRpb25fdG8oQHVzZXIpCiAgICAgICAgICByZWRpcmVjdCAnL2NvbmZpcm1hdGlvbnMvbmV3JwogICAgICAgIGVsc2UKICAgICAgICAgIGZsYXNoLm5vd1s6ZXJyb3JdID0gQHVzZXIuZXJyb3JzLmZ1bGxfbWVzc2FnZXMuam9pbigiLCAiKQogICAgICAgICAgaGFtbCA6J3VzZXJzL25ldycKICAgICAgICBlbmQKICAgICAgZW5kCiAgICBlbmQKICBlbmQKZW5kCg==</textarea>
+<textarea class="saurus-file" data-file="routes/confirmations.rb" data-mode="ruby">bW9kdWxlIFJvdXRlcwogIG1vZHVsZSBDb25maXJtYXRpb25zCiAgICBkZWYgc2VsZi5yZWdpc3RlcmVkKGFwcCkKICAgICAgYXBwLmdldCAnL2NvbmZpcm1hdGlvbnMvbmV3JyBkbwogICAgICAgIEB1c2VyID0gVXNlci5nZXQoc2Vzc2lvbls6dXNlcl9pZF0pCiAgICAgICAgaGFtbCA6J2NvbmZpcm1hdGlvbnMvbmV3JwogICAgICBlbmQKCiAgICAgIGFwcC5wb3N0ICcvY29uZmlybWF0aW9ucycgZG8KICAgICAgICBAdXNlciA9IFVzZXIuZ2V0KHBhcmFtc1s6dXNlcl9pZF0pCiAgICAgICAgaWYgQHVzZXIudmVyaWZpY2F0aW9uX2NvZGUgPT0gcGFyYW1zWzp2ZXJpZmljYXRpb25fY29kZV0KICAgICAgICAgIEB1c2VyLnVwZGF0ZShjb25maXJtZWQ6IHRydWUpCgogICAgICAgICAgc2Vzc2lvbls6YXV0aGVudGljYXRlZF0gPSB0cnVlCgogICAgICAgICAgZmxhc2hbOm5vdGljZV0gPSAiV2VsY29tZSAje0B1c2VyLmZpcnN0X25hbWV9LiBUaGUgQWR2ZW50dXJlIEJlZ2lucyEiCiAgICAgICAgICByZWRpcmVjdCAnL3Byb3RlY3RlZCcKICAgICAgICBlbHNlCiAgICAgICAgICBmbGFzaC5ub3dbOmVycm9yXSA9ICJWZXJpZmljYXRpb24gY29kZSBpcyBpbmNvcnJlY3QuIgogICAgICAgICAgaGFtbCA6J2NvbmZpcm1hdGlvbnMvbmV3JwogICAgICAgIGVuZAogICAgICBlbmQKICAgIGVuZAogIGVuZAplbmQK</textarea>
 </div>
 </div><div class="saurus-overview"><ul></ul></div></div><div class="saurus-code"><div class="file-path"><span class="crumb-container"></span><i class="fa fa-fw fa-folder"></i></div><div class="saurus-editor"></div></div><div class="saurus-explorer"><div class="saurus-file-list"></div><a href="https://github.com/TwilioDevEd/sms2fa-sinatra" target="_blank" class="explorer-get-code"> <i class="fa fa-lg fa-github-square"> </i>View Code on GitHub</a></div></div></div></div><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script><script src="ace/ace.js"></script><script src="ace/theme-monokai.js"></script><script src="viewsaurus.js"></script></body></html>
