@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/config_file'
+require 'rack-flash'
 require 'tilt/haml'
 
 require_relative 'helpers/datamapper_helper'
@@ -24,6 +25,7 @@ module TwoFactorAuth
     DataMapperHelper.setup(settings.database_url)
 
     enable :sessions
+    use Rack::Flash
     set :root, File.dirname(__FILE__)
 
     helpers Helpers::Authentication

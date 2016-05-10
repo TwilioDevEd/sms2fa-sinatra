@@ -15,6 +15,7 @@ module Routes
 
           redirect '/confirmations/new'
         else
+          flash.now[:error] = "Wrong user/password."
           haml :'sessions/new'
         end
       end

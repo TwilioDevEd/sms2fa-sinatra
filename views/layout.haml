@@ -21,6 +21,19 @@
             %li
               %a(href="#") Log Out
 
+
+    - if flash[:notice]
+      .alert.alert-success.alert-dismissible{ role: "alert" }
+        %button.close{ "data-dismiss" => "alert", "aria-label" => "Close"}
+          %span{ "aria-hidden" => "true"} &times;
+        =flash[:notice]
+
+    - if flash[:error]
+      .alert.alert-danger.alert-dismissible{ role: "alert" }
+        %button.close{ "data-dismiss" => "alert", "aria-label" => "Close"}
+          %span{ "aria-hidden" => "true"} &times;
+        =flash[:error]
+
     .container
       = yield
 

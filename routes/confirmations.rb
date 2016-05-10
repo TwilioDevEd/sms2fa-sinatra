@@ -13,8 +13,10 @@ module Routes
 
           session[:authenticated] = true
 
+          flash[:notice] = "Welcome #{@user.first_name}. The Adventure Begins!"
           redirect '/protected'
         else
+          flash.now[:error] = "Verification code is incorrect."
           haml :'confirmations/new'
         end
       end
