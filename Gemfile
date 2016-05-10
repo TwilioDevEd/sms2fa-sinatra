@@ -9,6 +9,7 @@ gem 'pg'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
+gem 'phony'
 
 group :test, :development do
   gem 'rspec'

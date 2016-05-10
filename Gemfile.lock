@@ -66,6 +66,7 @@ GEM
     jwt (1.5.4)
     multi_json (1.12.0)
     pg (0.18.4)
+    phony (2.15.21)
     rack (1.6.4)
     rack-flash3 (1.0.5)
       rack
@@ -118,6 +119,7 @@ DEPENDENCIES
   fakeweb
   haml
   pg
+  phony
   rack-flash3
   rack-test
   rake
