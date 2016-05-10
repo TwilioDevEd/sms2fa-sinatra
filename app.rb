@@ -5,6 +5,7 @@ require 'tilt/haml'
 require_relative 'helpers/datamapper_helper'
 require_relative 'helpers/authentication'
 require_relative 'routes/users'
+require_relative 'routes/sessions'
 require_relative 'routes/confirmations'
 require_relative 'routes/protected'
 require_relative 'lib/code_generator'
@@ -28,6 +29,7 @@ module TwoFactorAuth
     helpers Helpers::Authentication
 
     register Routes::Users
+    register Routes::Sessions
     register Routes::Confirmations
     register Routes::Protected
 
