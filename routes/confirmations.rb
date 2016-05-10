@@ -13,7 +13,7 @@ module Routes
 
           session[:authenticated] = true
 
-          redirect '/'
+          redirect '/protected'
         else
           haml :'confirmations/new'
         end

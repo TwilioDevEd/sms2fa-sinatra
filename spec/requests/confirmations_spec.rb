@@ -34,7 +34,7 @@ describe 'Routes::Users' do
 
       it 'redirects to /' do
         expect(last_response).to be_redirect
-        expect(last_response.location).to include '/'
+        expect(last_response.location).to include '/protected'
       end
     end
 
