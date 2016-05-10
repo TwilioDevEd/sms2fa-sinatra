@@ -19,7 +19,7 @@ describe 'Routes::Sessions' do
 
     context "when credentials are correct" do
       before do
-        allow(VerificationSender).to receive(:send_confirmation_to)
+        allow(VerificationSender).to receive(:send_verification_to)
         post '/sessions', { email: 'bob@example.com', password: 's3cr37' }
       end
 
@@ -34,7 +34,7 @@ describe 'Routes::Sessions' do
 
       it 'sends a confirmation message to the user' do
         expect(VerificationSender)
-          .to have_received(:send_confirmation_to)
+          .to have_received(:send_verification_to)
           .with(user)
           .once
       end
@@ -42,7 +42,7 @@ describe 'Routes::Sessions' do
 
     context "when credentials are incorrect" do
       before do
-        allow(VerificationSender).to receive(:send_confirmation_to)
+        allow(VerificationSender).to receive(:send_verification_to)
         post '/sessions', { email: 'bob@example.com', password: 'secret' }
       end
 

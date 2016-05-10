@@ -18,7 +18,7 @@ module Routes
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
-          VerificationSender.send_confirmation_to(@user)
+          VerificationSender.send_verification_to(@user)
           redirect '/confirmations/new'
         else
           flash.now[:error] = @user.errors.full_messages.join(", ")

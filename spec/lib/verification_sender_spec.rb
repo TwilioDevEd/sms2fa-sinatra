@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
 describe VerificationSender do
-  describe '.send_confirmation_to' do
+  describe '.send_verification_to' do
     let(:user) do
       User.create(first_name:   'Alice',
                   last_name:    'Doe',
@@ -15,7 +15,7 @@ describe VerificationSender do
       allow(CodeGenerator).to receive(:generate) { verification_code }
       allow(MessageSender).to receive(:send_code)
         .with(user.phone_number, verification_code )
-      described_class.send_confirmation_to(user)
+      described_class.send_verification_to(user)
     end
 
     it 'generates a code' do

@@ -19,7 +19,7 @@ describe 'Routes::Users' do
           password:     's3cr37'
         }
 
-        allow(VerificationSender).to receive(:send_confirmation_to)
+        allow(VerificationSender).to receive(:send_verification_to)
         post '/users', attributes_for_user
       end
 
@@ -36,7 +36,7 @@ describe 'Routes::Users' do
       it 'sends a confirmation message to the user' do
         bob = User.last
         expect(VerificationSender)
-          .to have_received(:send_confirmation_to)
+          .to have_received(:send_verification_to)
           .with(bob)
           .once
       end
