@@ -9,7 +9,7 @@
     %label.col-md-2.control-label{ for: :verification_code } Verification code
     .col-md-10
       %input.form-control{ name: :verification_code }
-      %input{ type: 'hidden', value: @user.id }
+      %input{ type: 'hidden', name: :user_id, value: @user.id }
   .form-group
     .col-sm-offset-2.col-sm-10
       %button.btn.btn-success Confirm
