@@ -55,4 +55,17 @@ describe 'Routes::Sessions' do
       end
     end
   end
+
+  describe 'GET /sessions/destroy' do
+    before { get '/sessions/destroy' }
+
+    it 'is successful' do
+      expect(last_response).to be_ok
+    end
+
+    it "destroys the session" do
+      expect(last_request.env['rack.session']['authenticated']).to be_nil
+      expect(last_request.env['rack.session']['user_id']).to be_nil
+    end
+  end
 end

@@ -19,6 +19,14 @@ module Routes
           haml :'sessions/new'
         end
       end
+
+      app.get '/sessions/destroy' do
+        session[:user_id] = nil
+        session[:authenticated] = nil
+
+        flash.now[:notice] = "See you soon!"
+        haml :'sessions/new'
+      end
     end
   end
 end
