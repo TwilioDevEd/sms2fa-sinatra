@@ -19,7 +19,7 @@ module Routes
         if @user.save
           session[:user_id] = @user.id
           ConfirmationSender.send_confirmation_to(@user)
-          redirect '/'
+          redirect '/confirmations/new'
         else
           haml :'users/new'
         end

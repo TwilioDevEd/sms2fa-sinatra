@@ -30,7 +30,7 @@ describe 'Routes::Users' do
 
       it 'redirect to confirmation page' do
         expect(last_response).to be_redirect
-        expect(last_response.location).to include '/'
+        expect(last_response.location).to include '/confirmations/new'
       end
 
       it 'sends a confirmation message to the user' do
