@@ -3,8 +3,8 @@ require 'sinatra/config_file'
 require 'rack-flash'
 require 'tilt/haml'
 
-require_relative 'helpers/datamapper_helper'
 require_relative 'helpers/authentication'
+require_relative 'helpers/data_mapper_setup'
 require_relative 'routes/users'
 require_relative 'routes/sessions'
 require_relative 'routes/confirmations'
@@ -22,13 +22,15 @@ module TwoFactorAuth
   class App < Sinatra::Base
     register Sinatra::ConfigFile
     config_file 'config/app.yml'
-    DataMapperHelper.setup(settings.database_url)
+    Helpers::DataMapperSetup.setup(settings.database_url)
+
+    helpers Helpers::Authentication
 
     enable :sessions
     use Rack::Flash
     set :root, File.dirname(__FILE__)
 
-    helpers Helpers::Authentication
+
 
     register Routes::Users
     register Routes::Sessions
