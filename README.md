@@ -27,7 +27,7 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
 
    You can find your `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` in your
    [Twilio Account Settings](https://www.twilio.com/user/account/settings).
-   You will also need a `TWILIO_PHONE_NUMBER`, which you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
+   You will also need a `TWILIO_PHONE_NUMBER`, you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
 
    Run `source .env` to export the environment variables.
 
