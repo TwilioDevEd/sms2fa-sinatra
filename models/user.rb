@@ -11,10 +11,4 @@ class User
   property :password,          BCryptHash, required: true
   property :verification_code, String,                     default:  ''
   property :confirmed,         Boolean,                    default:  false
-
-  validates_presence_of :first_name,
-                        :last_name,
-                        :email,
-                        :phone_number,
-                        :password
 end

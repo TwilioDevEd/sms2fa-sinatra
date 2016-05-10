@@ -21,6 +21,7 @@ module Routes
           VerificationSender.send_confirmation_to(@user)
           redirect '/confirmations/new'
         else
+          flash.now[:error] = @user.errors.full_messages.join(", ")
           haml :'users/new'
         end
       end
