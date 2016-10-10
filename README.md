@@ -1,6 +1,15 @@
+<a href="https://www.twilio.com">
+  <img src="https://static0.twilio.com/marketing/bundles/marketing/img/logos/wordmark-red.svg" alt="Twilio" width="250" />
+</a>
+
 # SMS Two Factor Authentication with Sinatra and Twilio
 
 [![Build Status](https://travis-ci.org/TwilioDevEd/sms2fa-sinatra.svg?branch=master)](https://travis-ci.org/TwilioDevEd/sms2fa-sinatra)
+
+If for some reason you're not able to use Authy, you can implement two factor
+authentication yourself using SMS messages.
+
+[Read the full tutorial here!](https://www.twilio.com/docs/tutorials/walkthrough/sms-two-factor-authentication/ruby/sinatra)
 
 ## Local development
 
@@ -33,8 +42,8 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
 
 1. Create development and test databases.
 
-   _Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
-   a Mac, I recommend [Postgres.app](http://postgresapp.com)_.
+   Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
+   a Mac, I recommend [Postgres.app](http://postgresapp.com).
 
    ```bash
    $ createdb sms_two_fa_sinatra
@@ -52,6 +61,8 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
    ```bash
    $ bundle exec rackup
    ```
+
+1. Check it out at [http://localhost:9292](http://localhost:9292).
 
 ## Meta
 
