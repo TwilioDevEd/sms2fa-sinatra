@@ -4,6 +4,7 @@ rvm:
   - rvm 2.3.0
 
 before_install:
+  - sudo apt-get update
   - sudo apt-get install postgresql-server-dev-9.5 libpq-dev
 
 before_script:
