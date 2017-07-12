@@ -18,20 +18,20 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
 1. First clone this repository and `cd` into it.
 
    ```bash
-   $ git clone git@github.com:TwilioDevEd/sms2fa-sinatra.git
-   $ cd sms2fa-sinatra
+   git clone git@github.com:TwilioDevEd/sms2fa-sinatra.git
+   cd sms2fa-sinatra
    ```
 
 1. Install the dependencies.
 
    ```bash
-   $ bundle install
+   bundle install
    ```
 
 1. Copy the sample configuration file and edit it to match your configuration.
 
    ```bash
-   $ cp .env.example .env
+   cp .env.example .env
    ```
 
    You can find your `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` in your
@@ -46,20 +46,20 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
    a Mac, I recommend [Postgres.app](http://postgresapp.com).
 
    ```bash
-   $ createdb sms_two_fa_sinatra
-   $ createdb sms_two_fa_sinatra_test
+   createdb sms_two_fa_sinatra
+   createdb sms_two_fa_sinatra_test
    ```
 
 1. Make sure the tests succeed.
 
    ```bash
-   $ bundle exec rspec
+   bundle exec rspec
    ```
 
 1. Start the server.
 
    ```bash
-   $ bundle exec rackup
+   bundle exec rackup
    ```
 
 1. Check it out at [http://localhost:9292](http://localhost:9292).
