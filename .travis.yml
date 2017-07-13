@@ -3,10 +3,8 @@ rvm:
   - rvm 2.2.5
   - rvm 2.3.0
 
-install:
-  - bundle install
-
 before_install:
+  - sudo apt-get update
   - sudo apt-get install postgresql-server-dev-9.5 libpq-dev
 
 before_script:
@@ -16,4 +14,4 @@ env:
   global:
     - TWILIO_ACCOUNT_SID=TWILIO-ACCOUNT-SID
     - TWILIO_AUTH_TOKEN=TWILIO-AUTH-TOKEN
-    - TWILIO_PHONE_NUMBER=TWILIO-PHONE-NUMBER
+    - TWILIO_NUMBER=TWILIO-NUMBER

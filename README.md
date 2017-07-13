@@ -1,6 +1,15 @@
+<a href="https://www.twilio.com">
+  <img src="https://static0.twilio.com/marketing/bundles/marketing/img/logos/wordmark-red.svg" alt="Twilio" width="250" />
+</a>
+
 # SMS Two Factor Authentication with Sinatra and Twilio
 
 [![Build Status](https://travis-ci.org/TwilioDevEd/sms2fa-sinatra.svg?branch=master)](https://travis-ci.org/TwilioDevEd/sms2fa-sinatra)
+
+If for some reason you're not able to use Authy, you can implement two factor
+authentication yourself using SMS messages.
+
+[Read the full tutorial here!](https://www.twilio.com/docs/tutorials/walkthrough/sms-two-factor-authentication/ruby/sinatra)
 
 ## Local development
 
@@ -9,49 +18,51 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
 1. First clone this repository and `cd` into it.
 
    ```bash
-   $ git clone git@github.com:TwilioDevEd/sms2fa-sinatra.git
-   $ cd sms2fa-sinatra
+   git clone git@github.com:TwilioDevEd/sms2fa-sinatra.git
+   cd sms2fa-sinatra
    ```
 
 1. Install the dependencies.
 
    ```bash
-   $ bundle install
+   bundle install
    ```
 
 1. Copy the sample configuration file and edit it to match your configuration.
 
    ```bash
-   $ cp .env.example .env
+   cp .env.example .env
    ```
 
    You can find your `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` in your
    [Twilio Account Settings](https://www.twilio.com/user/account/settings).
-   You will also need a `TWILIO_PHONE_NUMBER`, you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
+   You will also need a `TWILIO_NUMBER`, you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
 
    Run `source .env` to export the environment variables.
 
 1. Create development and test databases.
 
-   _Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
-   a Mac, I recommend [Postgres.app](http://postgresapp.com)_.
+   Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
+   a Mac, I recommend [Postgres.app](http://postgresapp.com).
 
    ```bash
-   $ createdb sms_two_fa_sinatra
-   $ createdb sms_two_fa_sinatra_test
+   createdb sms_two_fa_sinatra
+   createdb sms_two_fa_sinatra_test
    ```
 
 1. Make sure the tests succeed.
 
    ```bash
-   $ bundle exec rspec
+   bundle exec rspec
    ```
 
 1. Start the server.
 
    ```bash
-   $ bundle exec rackup
+   bundle exec rackup
    ```
+
+1. Check it out at [http://localhost:9292](http://localhost:9292).
 
 ## Meta
 
