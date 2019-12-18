@@ -70,7 +70,7 @@ GEM
     multipart-post (2.0.0)
     pg (0.18.4)
     phony (2.15.21)
-    rack (1.6.4)
+    rack (1.6.12)
     rack-flash3 (1.0.5)
       rack
     rack-protection (1.5.3)
