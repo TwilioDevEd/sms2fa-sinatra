@@ -6,9 +6,9 @@ gem 'haml'
 gem 'rack-flash3'
 gem 'twilio-ruby', '>= 5.0.0'
 gem 'pg'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'dm-transactions'
+gem 'data_mapper', '>= 1.2.0'
+gem 'dm-postgres-adapter', '>= 1.2.0'
+gem 'dm-transactions', '>= 1.2.0'
 gem 'phony'
 
 group :test, :development do
