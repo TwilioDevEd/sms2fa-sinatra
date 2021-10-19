@@ -1,0 +1,52 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        ruby: [ 2.6.4 ]
+
+    services:
+      postgres:
+        image: postgres:12.7
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: sms_two_fa_sinatra_test
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Ruby ${{ matrix.ruby }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Install OS dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y postgresql-server-dev-12 postgresql-12 libpq-dev
+      - name: Install gems
+        run: |
+          bundle install
+      - name: Run tests
+        run: |
+          cp .env.example .env
+          bundle exec rspec
