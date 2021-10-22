@@ -4,7 +4,7 @@
 
 # SMS Two Factor Authentication with Sinatra and Twilio
 
-[![Build Status](https://travis-ci.org/TwilioDevEd/sms2fa-sinatra.svg?branch=master)](https://travis-ci.org/TwilioDevEd/sms2fa-sinatra)
+[![Build and test](https://github.com/TwilioDevEd/sms2fa-sinatra/actions/workflows/build_test.yml/badge.svg)](https://github.com/TwilioDevEd/sms2fa-sinatra/actions/workflows/build_test.yml)
 
 If for some reason you're not able to use Authy, you can implement two factor
 authentication yourself using SMS messages.
