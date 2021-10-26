@@ -11,7 +11,7 @@ authentication yourself using SMS messages.
 
 [Read the full tutorial here!](https://www.twilio.com/docs/tutorials/walkthrough/sms-two-factor-authentication/ruby/sinatra)
 
-## Local development
+## Get started
 
 This project is built using the [Sinatra](http://www.sinatrarb.com/) web framework.
 
@@ -38,8 +38,6 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
    [Twilio Account Settings](https://www.twilio.com/user/account/settings).
    You will also need a `TWILIO_NUMBER`, you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
 
-   Run `source .env` to export the environment variables.
-
 1. Create development and test databases.
 
    Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
@@ -63,6 +61,14 @@ This project is built using the [Sinatra](http://www.sinatrarb.com/) web framewo
    ```
 
 1. Check it out at [http://localhost:9292](http://localhost:9292).
+
+### Configure Development vs Production Settings
+
+By default, this application will run in production mode - stack traces will not be visible in the web browser. If you would like to run this application in development locally, change the `APP_ENV` variable in your `.env` file.
+
+`APP_ENV=development`
+
+For more about development vs production, visit [Sinatra's configuration page](http://sinatrarb.com/configuration.html).
 
 ## Meta
 

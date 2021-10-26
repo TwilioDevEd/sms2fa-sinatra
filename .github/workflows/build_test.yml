@@ -49,5 +49,4 @@ jobs:
       - name: Run tests
         run: |
           cp .env.example .env
-          source .env
           bundle exec rspec
