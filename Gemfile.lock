@@ -110,7 +110,7 @@ GEM
       jwt (~> 1.5)
       libxml-ruby (= 3.0.0)
     uuidtools (2.1.5)
-    vcr (3.0.1)
+    vcr (6.0.0)
 
 PLATFORMS
   ruby
