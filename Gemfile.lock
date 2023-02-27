@@ -69,7 +69,7 @@ GEM
     libxml-ruby (3.0.0)
     multi_json (1.12.0)
     multipart-post (2.0.0)
-    pg (1.2.2)
+    pg (1.4.6)
     phony (2.15.21)
     rack (1.6.4)
     rack-flash3 (1.0.5)
